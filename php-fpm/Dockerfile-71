@@ -16,6 +16,10 @@ FROM laradock/php-fpm:1.4-71
 
 MAINTAINER Mahmoud Zalt <mahmoud@zalt.me>
 
+RUN apt-get update && apt install -y libtidy-dev  libicu-dev \
+&& docker-php-ext-install tidy \
+&& docker-php-ext-install intl
+
 #
 #--------------------------------------------------------------------------
 # Mandatory Software's Installation
