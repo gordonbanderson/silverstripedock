@@ -5,11 +5,11 @@ Fork of Laradock to work with SilverStripe projects
 
 ## Install and Run Containers
 ```
-cd /path/to/root/of/silverstripe
-git clone git@github.com:gordonbanderson/silverstripedock.git
+composer create-project silverstripe/installer testsilverdock
+cd testsilverdock
+git init
+git submodule add https://github.com/gordonbanderson/silverstripedock.git
 cd silverstripedock
-
-#You will probably want to change the passwords
 cp env-example .env
 sudo docker-compose up -d nginx mariadb adminer workspace
 ```
@@ -20,3 +20,6 @@ credentials in the .env file (default is root/root).  The server name is the doc
 container name, so in the above example it is mariadb.
 
 Go to http://localhost:80/ to install your site.
+
+Note that redirection to the CMS is currently broken (page not found).  Manually go to
+http://localhost/admin/pages and login with the credentials used during install.
